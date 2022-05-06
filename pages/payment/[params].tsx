@@ -13,6 +13,7 @@ import { useYupValidationResolver } from "../../Utils/validation";
 export default function Payment() {
   const router = useRouter();
   const { query } = router;
+  console.log("🚀 ~ file: [params].tsx ~ line 16 ~ Payment ~ query", query);
 
   const resolver = useYupValidationResolver(validationSchema);
   const [step, setStep] = useState(null);

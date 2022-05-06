@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 export default function Esewa() {
   const router = useRouter();
+  const { query } = router;
 
   //----------------------------------------esewa---------------------------------------
 
@@ -54,15 +55,19 @@ export default function Esewa() {
         );
         axios({
           method: "POST",
-          url: "https://ubiquitous-faun-96341a.netlify.app/api/khalti",
+          url: "https://teashopnepal.netlify.app/api/khalti",
           data: { token: payload.token, amount: payload.amount },
-        }).then((res) => {
-          console.log("gandu", res);
+        })
+          .then((res) => {
+            console.log("gandu", res);
 
-          router.push({
-            pathname: `/payment/PAYMENT_SUCCESS`,
+            router.push({
+              pathname: `/payment/PAYMENT_SUCCESS`,
+            });
+          })
+          .catch((err) => {
+            console.log(JSON.stringify(err.response));
           });
-        });
       },
       // onError handler is optional
       onError(error) {
