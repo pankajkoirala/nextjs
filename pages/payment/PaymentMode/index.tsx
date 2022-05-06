@@ -43,7 +43,7 @@ export default function Esewa() {
 
   let config = {
     // replace this key with yours
-    publicKey: "test_public_key_041bc167df62409fa852d5931713e17a",
+    publicKey: "test_public_key_a88f891886f54c18b6774d67a76d843c",
     productIdentity: Math.random(),
     productName: "test",
     productUrl: "http://gameofthrones.com/buy/Dragons",
