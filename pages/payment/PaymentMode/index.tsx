@@ -44,7 +44,7 @@ export default function Esewa() {
     // replace this key with yours
     publicKey: "test_public_key_041bc167df62409fa852d5931713e17a",
     productIdentity: Math.random(),
-    productName: "Drogon",
+    productName: "test",
     productUrl: "http://gameofthrones.com/buy/Dragons",
     eventHandler: {
       onSuccess(payload) {
