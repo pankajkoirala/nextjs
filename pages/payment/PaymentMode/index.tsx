@@ -49,6 +49,7 @@ export default function Esewa() {
     eventHandler: {
       onSuccess(payload) {
         axios({
+          method: "POST",
           url: "https://khalti.com/api/v2/payment/verify/",
           headers: {
             Authorization: "test_secret_key_375c7b8d4572469c8d83833fcd933255",
@@ -67,7 +68,10 @@ export default function Esewa() {
       },
       // onError handler is optional
       onError(error) {
-        console.log("🚀 ~ file: index.tsx ~ line 53 ~ onError ~ error", error);
+        console.log(
+          "🚀 ~ file: index.tsx ~ line 53 ~ onError ~ error",
+          error?.response
+        );
         // handle errors
         router.push({
           pathname: `/payment/PAYMENT_FAILED`,
