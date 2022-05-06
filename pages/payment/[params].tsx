@@ -45,7 +45,6 @@ export default function Payment() {
         return (
           <UserDetail
             register={register}
-            handleSubmit={handleSubmit}
             errors={errors}
             quantity={query?.quantity as string}
             totalPrice={query?.totalPrice as string}
