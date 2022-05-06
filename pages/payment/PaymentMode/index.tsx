@@ -7,18 +7,21 @@ import { useEffect } from "react";
 export default function Esewa() {
   const router = useRouter();
   const { query } = router;
+  console.log("🚀 ~ file: index.tsx ~ line 10 ~ Esewa ~ query", query);
 
   //----------------------------------------esewa---------------------------------------
 
   var path = "https://uat.esewa.com.np/epay/main";
   var params = {
-    amt: 100,
+    amt: query?.totalPrice,
     psc: 0,
-    pdc: 0,
+    pdc: 100,
     txAmt: 0,
-    tAmt: 100,
+    tAmt: parseInt(query?.totalPrice as string) + 100,
     pid: Math.random(),
     scd: "EPAYTEST",
+    // su: "https://teashopnepal.netlify.app/payment/PAYMENT_SUCCESS",
+    // fu: "https://teashopnepal.netlify.app/payment/PAYMENT_FAILED",
     su: "http://localhost:3000/payment/PAYMENT_SUCCESS",
     fu: "http://localhost:3000/payment/PAYMENT_FAILED",
   };
@@ -49,34 +52,25 @@ export default function Esewa() {
     productUrl: "http://gameofthrones.com/buy/Dragons",
     eventHandler: {
       onSuccess(payload) {
-        console.log(
-          "🚀 ~ file: index.tsx ~ line 51 ~ onSuccess ~ payload",
-          payload
-        );
-        axios({
-          method: "POST",
-          url: "https://teashopnepal.netlify.app/api/khalti",
-          // url: "http://localhost:3000/api/khalti",
-          data: { token: payload.token, amount: payload.amount },
-        })
-          .then((res) => {
-            console.log("gandu", res);
+        //payment verification from merchant side
+        // axios({
+        //   method: "POST",
+        //   url: "https://teashopnepal.netlify.app/api/khalti",
+        //    url: "http://localhost:3000/api/khalti",
+        //   data: { token: payload.token, amount: payload.amount },
+        // })
+        //   .then((res) => {
+        //     console.log("gandu", res);
 
-            router.push({
-              pathname: `/payment/PAYMENT_SUCCESS`,
-            });
-          })
-          .catch((err) => {
-            console.log(err.response);
-          });
+        //   })
+        //   .catch((err) => {
+        //     console.log(err.response);
+        //   });
+        router.push({
+          pathname: `/payment/PAYMENT_SUCCESS`,
+        });
       },
-      // onError handler is optional
       onError(error) {
-        console.log(
-          "🚀 ~ file: index.tsx ~ line 53 ~ onError ~ error",
-          JSON.stringify(error?.response)
-        );
-        // handle errors
         router.push({
           pathname: `/payment/PAYMENT_FAILED`,
         });
@@ -87,8 +81,8 @@ export default function Esewa() {
     },
     paymentPreference: [
       "KHALTI",
+      // "MOBILE_BANKING",
       // "EBANKING",
-      "MOBILE_BANKING",
       // "CONNECT_IPS",
       // "SCT",
     ],
@@ -97,7 +91,10 @@ export default function Esewa() {
   let checkout = typeof window !== "undefined" && new KhaltiCheckout(config);
   const khalti = () => {
     // minimum transaction amount must be 10, i.e 1000 in paisa.
-    checkout.show({ amount: 1000 });
+    checkout.show({
+      // amount: (parseInt(query?.totalPrice as string) + 100) * 100,
+      amount: 10000,
+    });
   };
   return (
     <Box w={"100%"}>

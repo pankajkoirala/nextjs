@@ -13,11 +13,11 @@ export default function Footer() {
       <Flex alignItems={"center"} w={"100%"} flexDir={"column"} color={"white"}>
         <VStack w={"50%"} textAlign={"center"}>
           <Box fontWeight={"bold"}>Online Tea Shop</Box>
-          <Box>
+          <Text color={"white"} fontSize={"medium"} align={"center"}>
             Tea contains “polyphenols” that repair cells and in doing so, may
             help our bodies fight help us fend off cardiovascular diseases,
             cancers, osteoporosis, diabetes mellitus and other maladies.
-          </Box>
+          </Text>
           <HStack>
             {getIcon("facebook")}
             {getIcon("instagram")}

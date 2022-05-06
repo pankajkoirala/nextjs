@@ -9,24 +9,26 @@ import Esewa from "./PaymentMode";
 import { useMutation } from "react-query";
 import { fetchUserList } from "../../Utils/apiList";
 import { useYupValidationResolver } from "../../Utils/validation";
+import Success from "./paymentResponse/success";
+import Error from "./paymentResponse/error";
 
 export default function Payment() {
   const router = useRouter();
   const { query } = router;
-  console.log("🚀 ~ file: [params].tsx ~ line 16 ~ Payment ~ query", query);
 
   const resolver = useYupValidationResolver(validationSchema);
-  const [step, setStep] = useState(null);
+  const [step, setStep] = useState("PAYMENT_SUCCESS");
 
-  useEffect(() => {
-    setStep(query?.params);
-  }, [query]);
+  // useEffect(() => {
+  //   setStep(query?.params);
+  // }, [query]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver });
+  } = useForm();
+  // ({ resolver });
 
   const { data, mutateAsync: postUser } = useMutation(
     "CreateUser",
@@ -55,9 +57,9 @@ export default function Payment() {
       case "PAYMENT_METHOD":
         return <Esewa />;
       case "PAYMENT_SUCCESS":
-        return <Box>Payment Successful</Box>;
+        return <Success />;
       case "PAYMENT_FAILED":
-        return <Box>Payment Failed</Box>;
+        return <Error />;
     }
   };
   return (
@@ -103,7 +105,7 @@ export default function Payment() {
 
         <Center>
           <Box
-            minH={"md"}
+            minH={"96"}
             bg={"green.600"}
             padding={"4"}
             borderRadius={"2xl"}

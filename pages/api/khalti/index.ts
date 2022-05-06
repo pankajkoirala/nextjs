@@ -1,7 +1,7 @@
 import axios from "axios";
 
 function VerifyPayment(req, res) {
-  const { token, amount } = req.body;
+  const { token, amount } = req?.body;
 
   axios({
     method: "POST",
