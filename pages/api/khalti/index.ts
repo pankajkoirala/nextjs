@@ -1,7 +1,8 @@
 import axios from "axios";
 
 function VerifyPayment(req, res) {
-  const { token, amount } = res.body;
+  const { token, amount } = req.body;
+
   axios({
     method: "POST",
     url: "https://khalti.com/api/v2/payment/verify/",

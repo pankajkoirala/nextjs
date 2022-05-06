@@ -56,6 +56,7 @@ export default function Esewa() {
         axios({
           method: "POST",
           url: "https://teashopnepal.netlify.app/api/khalti",
+          // url: "http://localhost:3000/api/khalti",
           data: { token: payload.token, amount: payload.amount },
         })
           .then((res) => {
