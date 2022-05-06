@@ -67,7 +67,7 @@ export default function Esewa() {
             });
           })
           .catch((err) => {
-            console.log(JSON.stringify(err.response));
+            console.log(err.response);
           });
       },
       // onError handler is optional
