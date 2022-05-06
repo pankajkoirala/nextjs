@@ -18,8 +18,7 @@ function VerifyPayment(req, res) {
       res.status(200).send({ status: true, data: result, message: "success" });
     })
     .catch((err) => {
-      // res.status(402).send({ status: false, data: err, message: "failed" });
-      res.send(err);
+      res.status(402).send({ status: false, data: err, message: "failed" });
     });
 }
 
