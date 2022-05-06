@@ -48,12 +48,15 @@ export default function Esewa() {
     productUrl: "http://gameofthrones.com/buy/Dragons",
     eventHandler: {
       onSuccess(payload) {
+        console.log(
+          "🚀 ~ file: index.tsx ~ line 51 ~ onSuccess ~ payload",
+          payload
+        );
         axios({
           method: "POST",
           url: "https://khalti.com/api/v2/payment/verify/",
           headers: {
             Authorization: "test_secret_key_375c7b8d4572469c8d83833fcd933255",
-            "x-apikey": "59a7ad19f5a9fa0808f11931",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
           },
@@ -70,7 +73,7 @@ export default function Esewa() {
       onError(error) {
         console.log(
           "🚀 ~ file: index.tsx ~ line 53 ~ onError ~ error",
-          error?.response
+          JSON.stringify(error?.response)
         );
         // handle errors
         router.push({
