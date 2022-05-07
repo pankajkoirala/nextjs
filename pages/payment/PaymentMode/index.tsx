@@ -20,10 +20,10 @@ export default function Esewa() {
     tAmt: parseInt(query?.totalPrice as string) + 100,
     pid: Math.random(),
     scd: "EPAYTEST",
-    // su: "https://teashopnepal.netlify.app/payment/PAYMENT_SUCCESS",
-    // fu: "https://teashopnepal.netlify.app/payment/PAYMENT_FAILED",
-    su: "http://localhost:3000/payment/PAYMENT_SUCCESS",
-    fu: "http://localhost:3000/payment/PAYMENT_FAILED",
+    su: "https://teashopnepal.netlify.app/payment/PAYMENT_SUCCESS",
+    fu: "https://teashopnepal.netlify.app/payment/PAYMENT_FAILED",
+    // su: "http://localhost:3000/payment/PAYMENT_SUCCESS",
+    // fu: "http://localhost:3000/payment/PAYMENT_FAILED",
   };
 
   function post(path, params) {
