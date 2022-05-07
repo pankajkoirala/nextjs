@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 export const _axios = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://teashopnepal.netlify.app/api",
   headers: {
     "Content-Type": "application/json",
   },

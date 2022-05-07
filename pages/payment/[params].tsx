@@ -25,16 +25,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../redux/accessors";
 
 export default function Payment() {
+  const resolver = useYupValidationResolver(validationSchema);
   const router = useRouter();
   const dispatch = useDispatch();
-
   const { query } = router;
-  console.log("🚀 ~ file: [params].tsx ~ line 32 ~ Payment ~ query", query);
-  console.log("date date", Date.now());
-
-  const resolver = useYupValidationResolver(validationSchema);
-  const [step, setStep] = useState(null);
   const userData = useSelector(userInfo);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver });
+
+  const [step, setStep] = useState(null);
 
   useEffect(() => {
     setStep(query?.params);
@@ -44,12 +46,6 @@ export default function Payment() {
       dispatch(deleteUserInfo());
     }
   }, [query]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver });
 
   const { data, mutateAsync: postUser } = useMutation(
     "CreateUser",
