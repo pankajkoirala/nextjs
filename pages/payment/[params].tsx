@@ -37,6 +37,7 @@ export default function Payment() {
   } = useForm({ resolver });
 
   const [step, setStep] = useState(null);
+  console.log("🚀 ~ file: [params].tsx ~ line 40 ~ Payment ~ step", step);
 
   useEffect(() => {
     setStep(query?.params);
