@@ -1,8 +1,17 @@
-import { Box, Button, Container, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Image,
+  Text,
+  VStack,
+  HStack,
+} from "@chakra-ui/react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useRef } from "react";
 import BTN from "./../../Component/Button/index";
 import { useRouter } from "next/router";
+import { getIcon } from "../../Utils/IconManager";
 
 export default function Home() {
   const { scrollYProgress } = useViewportScroll();
@@ -62,6 +71,40 @@ export default function Home() {
             </VStack>
           </motion.div>
         </Box>
+        <VStack w={"100%"} paddingY={"4"}>
+          <Text
+            textAlign={"center"}
+            color={"green.700"}
+            fontSize={"4xl"}
+            fontStyle={"oblique"}
+            fontWeight={"bold"}
+          >
+            Payment Methods
+          </Text>
+          <HStack w={"100%"} pt={"8"} mb={"4"} justify={"space-around"}>
+            <motion.div
+              animate={{ x: 100 }}
+              initial={{ x: -100 }}
+              transition={{ duration: 1 }}
+            >
+              <Box>{getIcon("cashPayment")}</Box>
+            </motion.div>
+            <motion.div
+              animate={{ y: 0 }}
+              initial={{ y: -100 }}
+              transition={{ duration: 1 }}
+            >
+              <Box>{getIcon("phonePay")}</Box>
+            </motion.div>
+            <motion.div
+              animate={{ x: 0 }}
+              initial={{ x: 200 }}
+              transition={{ duration: 1 }}
+            >
+              <Box>{getIcon("cash")}</Box>
+            </motion.div>
+          </HStack>
+        </VStack>
       </Container>
     </motion.div>
   );
