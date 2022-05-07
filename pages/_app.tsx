@@ -2,11 +2,15 @@ import { Box, ChakraProvider } from "@chakra-ui/react";
 import NavBar from "../Component/NavBar";
 import theme from "../theme";
 import Footer from "./../Component/Footer/index";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import rootReducer from "./../redux";
+import { saveState } from "../redux/saveInLocal";
+import { debounce } from "debounce";
+// import { store } from "app/store";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -24,27 +28,34 @@ function MyApp({ Component, pageProps }) {
     },
   });
 
+  rootReducer.subscribe(
+    debounce(() => {
+      saveState(rootReducer.getState());
+    }, 800)
+  );
   return (
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider theme={theme}>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          // newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+      <Provider store={rootReducer}>
+        <ChakraProvider theme={theme}>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            // newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
 
-        <NavBar />
-        <Box pt={["16", "16", "12", "12"]}>
-          <Component {...pageProps} />
-        </Box>
-        <Footer />
-      </ChakraProvider>
+          <NavBar />
+          <Box pt={["16", "16", "12", "12"]}>
+            <Component {...pageProps} />
+          </Box>
+          <Footer />
+        </ChakraProvider>
+      </Provider>
     </QueryClientProvider>
   );
 }

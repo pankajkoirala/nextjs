@@ -1,7 +1,10 @@
 import { Box, Center, Flex, HStack, Text } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { getIcon } from "../../../Utils/IconManager";
 
 export default function Success() {
+  const router = useRouter();
+
   return (
     <Flex flexDir={"column"} alignItems={"center"}>
       <Box fontWeight={"bold"} color={"white"} fontSize={"2xl"}>
@@ -20,7 +23,11 @@ export default function Success() {
       <Box fontWeight={"bold"} color={"white"} fontSize={"xl"}>
         Thank You.
       </Box>
-      <HStack pt={"5%"}>
+      <HStack
+        onClick={() => router.push("/home")}
+        _hover={{ textDecoration: "underline" }}
+        pt={"5%"}
+      >
         {getIcon("back")}
         <Text
           fontWeight={"bold"}

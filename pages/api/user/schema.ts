@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  paymentMethod: {
+    type: String,
+    required: true,
+  },
 });
 const user = mongoose.model("user", userSchema);
 const createUserValidator = (payload) => {
@@ -38,6 +42,9 @@ const createUserValidator = (payload) => {
       "string.empty": "Address is not allowed to be empty",
     }),
     mobileNo: Joi.string().required().messages({
+      "string.empty": "Mobile No is not allowed to be empty",
+    }),
+    paymentMethod: Joi.string().required().messages({
       "string.empty": "Mobile No is not allowed to be empty",
     }),
   });
@@ -63,6 +70,9 @@ const updateUserValidator = (payload) => {
       "string.empty": "Address is not allowed to be empty",
     }),
     mobileNo: Joi.string().required().messages({
+      "string.empty": "Mobile No is not allowed to be empty",
+    }),
+    paymentMethod: Joi.string().required().messages({
       "string.empty": "Mobile No is not allowed to be empty",
     }),
   });

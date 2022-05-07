@@ -1,4 +1,13 @@
-import { Box, Center, Container, Flex, HStack, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Container,
+  Flex,
+  HStack,
+  Spinner,
+  Stack,
+  VStack,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { getIcon } from "../../Utils/IconManager";
 import { useEffect, useState } from "react";
@@ -11,35 +20,49 @@ import { fetchUserList } from "../../Utils/apiList";
 import { useYupValidationResolver } from "../../Utils/validation";
 import Success from "./paymentResponse/success";
 import Error from "./paymentResponse/error";
+import { addUserInfo, deleteUserInfo } from "../../redux/action/userInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { userInfo } from "../../redux/accessors";
 
 export default function Payment() {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const { query } = router;
+  console.log("🚀 ~ file: [params].tsx ~ line 32 ~ Payment ~ query", query);
+  console.log("date date", Date.now());
 
   const resolver = useYupValidationResolver(validationSchema);
-  const [step, setStep] = useState("PAYMENT_SUCCESS");
+  const [step, setStep] = useState(null);
+  const userData = useSelector(userInfo);
 
-  // useEffect(() => {
-  //   setStep(query?.params);
-  // }, [query]);
+  useEffect(() => {
+    if (query?.params === "USER_DETAIL") {
+      setStep(query?.params);
+    }
+    if (query?.params === "PAYMENT_SUCCESS") {
+      postUser(userData);
+      dispatch(deleteUserInfo());
+    }
+  }, [query]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  // ({ resolver });
+  } = useForm({ resolver });
 
   const { data, mutateAsync: postUser } = useMutation(
     "CreateUser",
     fetchUserList,
     {
-      onSuccess: () => setStep("2"),
+      onSuccess: () => setStep(query?.params),
     }
   );
 
   const onSubmit = (data) => {
-    // postUser(data);
+    // setuserInfo(data);
+    dispatch(addUserInfo(data));
     setStep("PAYMENT_METHOD");
   };
   const paymentStep = (key) => {
@@ -59,7 +82,16 @@ export default function Payment() {
       case "PAYMENT_SUCCESS":
         return <Success />;
       case "PAYMENT_FAILED":
-        return <Error />;
+        return <Error setStep={setStep} />;
+      default:
+        return (
+          <VStack minH={"96"} alignItems={"center"} justifyContent={"center"}>
+            <Spinner size="xl" color="white" />
+            <Box fontSize={"lg"} fontWeight={"bold"} color={"white"}>
+              Loading...
+            </Box>
+          </VStack>
+        );
     }
   };
   return (
