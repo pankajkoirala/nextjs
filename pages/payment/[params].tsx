@@ -37,9 +37,8 @@ export default function Payment() {
   const userData = useSelector(userInfo);
 
   useEffect(() => {
-    if (query?.params === "USER_DETAIL") {
-      setStep(query?.params);
-    }
+    setStep(query?.params);
+
     if (query?.params === "PAYMENT_SUCCESS") {
       postUser(userData);
       dispatch(deleteUserInfo());
@@ -54,10 +53,7 @@ export default function Payment() {
 
   const { data, mutateAsync: postUser } = useMutation(
     "CreateUser",
-    fetchUserList,
-    {
-      onSuccess: () => setStep(query?.params),
-    }
+    fetchUserList
   );
 
   const onSubmit = (data) => {
