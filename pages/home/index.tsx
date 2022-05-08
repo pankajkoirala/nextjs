@@ -7,6 +7,7 @@ import {
   VStack,
   HStack,
   Center,
+  Flex,
 } from "@chakra-ui/react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useRef } from "react";
@@ -20,6 +21,7 @@ export default function Home() {
   const router = useRouter();
 
   const scale = useTransform(scrollYProgress, [1, 0], [0.5, 1]);
+  
   return (
     <motion.div ref={constraintsRef}>
       <Container
@@ -72,7 +74,8 @@ export default function Home() {
             </VStack>
           </motion.div>
         </Box>
-        <VStack bg={"white"} h={"96"}>
+
+        <Box paddingY={"6"}>
           <Center>
             <Text
               textShadow={"2px 2px 5px black"}
@@ -82,14 +85,23 @@ export default function Home() {
               fontStyle={"oblique"}
               fontWeight={"bold"}
             >
-              Tea Is A Drink Of Health.
+              Products
             </Text>
           </Center>
-        </VStack>
+          <HStack justify={"space-evenly"} h={"3xl"}>
+            <Box bg={"white"} borderRadius={"xl"} h={"70%"} w={"20%"}></Box>
+            <Box bg={"white"} borderRadius={"xl"} h={"70%"} w={"20%"}></Box>
+            <Box bg={"white"} borderRadius={"xl"} h={"70%"} w={"20%"}></Box>
+          </HStack>
+        </Box>
 
         <VStack>
-          <HStack alignItems={"flex-start"} w={"100%"}>
-            <VStack p={"4"} w={"50%"}>
+          <Flex
+            flexDir={["column-reverse", "column-reverse", "row", "row"]}
+            alignItems={"flex-start"}
+            w={"100%"}
+          >
+            <VStack p={"4"} w={["100%", "100%", "50%", "50%"]}>
               <Box>
                 <Text
                   fontStyle={"oblique"}
@@ -114,15 +126,22 @@ export default function Home() {
                 taliensis.
               </Box>
             </VStack>
-            <Image h={"100%"} w={"50%"} src="/teaPlant.jpg" />
-          </HStack>
+            <Box h={"100%"} w={["100%", "100%", "50%", "50%"]}>
+              <Image h={"100%"} w={"100%"} src="/teaStan.jpg" />
+            </Box>
+          </Flex>
         </VStack>
-
         <VStack>
-          <HStack alignItems={"flex-start"} w={"100%"}>
-            <Image h={"100%"} w={"50%"} src="/teaStan.jpg" />
+          <Flex
+            flexDir={["column", "column", "row", "row"]}
+            alignItems={"flex-start"}
+            w={"100%"}
+          >
+            <Box h={"100%"} w={["100%", "100%", "50%", "50%"]}>
+              <Image h={"100%"} w={"100%"} src="/teaPlant.jpg" />
+            </Box>
 
-            <VStack p={"4"} w={"50%"}>
+            <VStack p={"4"} w={["100%", "100%", "50%", "50%"]}>
               <Box>
                 <Text
                   fontStyle={"oblique"}
@@ -147,11 +166,45 @@ export default function Home() {
                 taliensis.
               </Box>
             </VStack>
-          </HStack>
+          </Flex>
         </VStack>
-        <HStack h={"96"}>
-          <Box bg={'red'} h={'80%'} w={'20%'}></Box>
-        </HStack>
+
+        <VStack>
+          <Flex
+            flexDir={["column-reverse", "column-reverse", "row", "row"]}
+            alignItems={"flex-start"}
+            w={"100%"}
+          >
+            <VStack p={"4"} w={["100%", "100%", "50%", "50%"]}>
+              <Box>
+                <Text
+                  fontStyle={"oblique"}
+                  fontSize={"2xl"}
+                  fontWeight={"bold"}
+                  color={"green.700"}
+                  textAlign={"left"}
+                >
+                  Who We Are
+                </Text>
+              </Box>
+              <Box
+                fontStyle={"oblique"}
+                textAlign={"justify"}
+                fontSize={"large"}
+                lineHeight={"140%"}
+              >
+                Tea is an aromatic beverage prepared by pouring hot or boiling
+                water over cured or fresh leaves of Camellia sinensis, an
+                evergreen shrub native to China, India and other East Asian
+                countries. Tea is also rarely made from the leaves of Camellia
+                taliensis.
+              </Box>
+            </VStack>
+            <Box h={"100%"} w={["100%", "100%", "50%", "50%"]}>
+              <Image h={"100%"} w={"100%"} src="/hotTea.jpg" />
+            </Box>
+          </Flex>
+        </VStack>
 
         <VStack bg={"white"} w={"100%"} paddingY={"4"}>
           <Text
@@ -189,6 +242,7 @@ export default function Home() {
           </HStack>
         </VStack>
       </Container>
+      {/* asfasgsagsagasgags */}
     </motion.div>
   );
 }
