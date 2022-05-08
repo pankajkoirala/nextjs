@@ -90,19 +90,31 @@ export default function Product() {
             justify={"space-between"}
           >
             <Box>
-              <Box color={"green.700"} fontSize={"2xl"} fontWeight={"bold"}>
+              <Box
+                fontStyle={"oblique"}
+                color={"green.700"}
+                fontSize={"2xl"}
+                fontWeight={"bold"}
+              >
                 {each?.name}
               </Box>
-              <Box color={"green.700"} fontWeight={"bold"} marginY={"2"}>
+              <Box
+                fontStyle={"oblique"}
+                color={"green.700"}
+                fontWeight={"bold"}
+                marginY={"2"}
+              >
                 Rs. {each?.pricePerUnit}
               </Box>
-              <Text mt={"8"}>{each?.about}</Text>
+              <Text fontStyle={"oblique"} mt={"8"}>
+                {each?.about}
+              </Text>
             </Box>
             <Box id="test"></Box>
             <Flex w={"100%"} justify={"center"} flexDir={"column"}>
               <HStack justify={"space-between"} marginY={"4"}>
                 <VStack w={"50%"}>
-                  <Text>Quantity</Text>
+                  <Text fontStyle={"oblique"}>Quantity</Text>
 
                   <SELECT
                     list={[
@@ -150,7 +162,7 @@ export default function Product() {
                   />
                 </VStack>
                 <VStack w={"50%"}>
-                  <Text>Amount</Text>
+                  <Text fontStyle={"oblique"}>Amount</Text>
                   <Input
                     disabled
                     _disabled={{ bg: "white" }}

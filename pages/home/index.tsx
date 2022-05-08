@@ -6,6 +6,7 @@ import {
   Text,
   VStack,
   HStack,
+  Center,
 } from "@chakra-ui/react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useRef } from "react";
@@ -31,7 +32,7 @@ export default function Home() {
         <Box
           w={"100%"}
           minH={"calc(100vh - 48px)"}
-          bgImage="https://cdn.pixabay.com/photo/2020/07/28/20/18/field-5446230_960_720.jpg"
+          bgImage="/home.jpg"
           bgRepeat={"no-repeat"}
           bgPosition="center"
           bgSize={"cover"}
@@ -41,14 +42,14 @@ export default function Home() {
           <motion.div style={{ scale }}>
             <VStack justify={"center"} textAlign={"center"} color={"white"}>
               <Box>
-                <Text pt={"24"} fontSize={48}>
+                <Text pt={"24"} fontStyle={"oblique"} fontSize={48}>
                   Wellcome To The Nepal First Tea Garden
                 </Text>
-                <Text>
+                <Text fontStyle={"oblique"}>
                   We provide all kind of special tea which are produce locally
                   with all grade at most reasonable price.
                 </Text>
-                <Text>Please click below to order</Text>
+                <Text fontStyle={"oblique"}>Please click below to order</Text>
               </Box>
               <Box>
                 <Image
@@ -71,8 +72,90 @@ export default function Home() {
             </VStack>
           </motion.div>
         </Box>
-        <VStack w={"100%"} paddingY={"4"}>
+        <VStack bg={"white"} h={"96"}>
+          <Center>
+            <Text
+              textShadow={"2px 2px 5px black"}
+              textAlign={"center"}
+              color={"green.700"}
+              fontSize={"4xl"}
+              fontStyle={"oblique"}
+              fontWeight={"bold"}
+            >
+              Tea Is A Drink Of Health.
+            </Text>
+          </Center>
+        </VStack>
+
+        <VStack>
+          <HStack alignItems={"flex-start"} w={"100%"}>
+            <VStack p={"4"} w={"50%"}>
+              <Box>
+                <Text
+                  fontStyle={"oblique"}
+                  fontSize={"2xl"}
+                  fontWeight={"bold"}
+                  color={"green.700"}
+                  textAlign={"left"}
+                >
+                  Who We Are
+                </Text>
+              </Box>
+              <Box
+                fontStyle={"oblique"}
+                textAlign={"justify"}
+                fontSize={"large"}
+                lineHeight={"140%"}
+              >
+                Tea is an aromatic beverage prepared by pouring hot or boiling
+                water over cured or fresh leaves of Camellia sinensis, an
+                evergreen shrub native to China, India and other East Asian
+                countries. Tea is also rarely made from the leaves of Camellia
+                taliensis.
+              </Box>
+            </VStack>
+            <Image h={"100%"} w={"50%"} src="/teaPlant.jpg" />
+          </HStack>
+        </VStack>
+
+        <VStack>
+          <HStack alignItems={"flex-start"} w={"100%"}>
+            <Image h={"100%"} w={"50%"} src="/teaStan.jpg" />
+
+            <VStack p={"4"} w={"50%"}>
+              <Box>
+                <Text
+                  fontStyle={"oblique"}
+                  fontSize={"2xl"}
+                  fontWeight={"bold"}
+                  color={"green.700"}
+                  textAlign={"left"}
+                >
+                  Who We Are
+                </Text>
+              </Box>
+              <Box
+                fontStyle={"oblique"}
+                textAlign={"justify"}
+                fontSize={"large"}
+                lineHeight={"140%"}
+              >
+                Tea is an aromatic beverage prepared by pouring hot or boiling
+                water over cured or fresh leaves of Camellia sinensis, an
+                evergreen shrub native to China, India and other East Asian
+                countries. Tea is also rarely made from the leaves of Camellia
+                taliensis.
+              </Box>
+            </VStack>
+          </HStack>
+        </VStack>
+        <HStack h={"96"}>
+          <Box bg={'red'} h={'80%'} w={'20%'}></Box>
+        </HStack>
+
+        <VStack bg={"white"} w={"100%"} paddingY={"4"}>
           <Text
+            textShadow={"2px 2px 5px black"}
             textAlign={"center"}
             color={"green.700"}
             fontSize={"4xl"}
