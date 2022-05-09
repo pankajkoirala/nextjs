@@ -21,7 +21,29 @@ export default function Home() {
   const router = useRouter();
 
   const scale = useTransform(scrollYProgress, [1, 0], [0.5, 1]);
-
+  const product = [
+    {
+      name: "Tea",
+      description:
+        "It takes around 2,000 tiny leaves to make just one poundof finished tea.",
+      image:
+        "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGVhJTIwY3VwfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    },
+    {
+      name: "Churpi",
+      description:
+        "Churpi is typically made within the mountain region of Nepal. Yak milk is typically preferred to form Churpi.",
+      image:
+        "https://cdn3.eyeem.com/thumb/e505daefe2cb18a0e9628c868babaef479c9b9c7-1525602258041/w/800",
+    },
+    {
+      name: "Aalichi",
+      description:
+        " Cardamom is rich in essential oils and has strong antioxidant and diuretic properties. It has an antibacterial and anti-inflammatory effect.",
+      image:
+        "https://cdn.tasteatlas.com/images/ingredients/26bf39e64a9441f4824c1a682171528b.jpg?w=600&h=450",
+    },
+  ];
   return (
     <motion.div ref={constraintsRef}>
       <Container
@@ -91,104 +113,61 @@ export default function Home() {
           <Flex
             justify={"space-evenly"}
             flexDir={["column", "column", "row", "row"]}
+            paddingY={"4"}
           >
-            <Box
-              paddingY={["2", "2", "0", "0"]}
-              h={"90%"}
-              w={["100%", "100%", "20%", "20%"]}
-              pos={"relative"}
-              _hover={{
-                "#test": { h: "100%" },
-              }}
-              h={"80"}
-            >
-              <Image
-                // borderRadius={"xl"}
-                h={"100%"}
-                w={"100%"}
-                // display={"block"}
-                fit={"cover"}
-                src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGVhJTIwY3VwfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-              />
+            {product?.map((each, i) => (
               <Box
-                id="test"
-                pos={"absolute"}
-                bottom={0}
-                left={0}
-                right={0}
-                bg={"red"}
-                overflow={"hidden"}
-                w={"100%"}
-                transition={"0.5s ease"}
-                h={"0%"}
+                key={i}
+                paddingY={["2", "2", "0", "0"]}
+                w={["100%", "100%", "20%", "20%"]}
+                pos={"relative"}
+                _hover={{
+                  "#test": { h: "100%" },
+                }}
+                h={"80"}
               >
-                <Box color={"white"}>hello</Box>
+                <Image
+                  // borderRadius={"xl"}
+                  h={"100%"}
+                  w={"100%"}
+                  // display={"block"}
+                  fit={"cover"}
+                  src={each?.image}
+                />
+                <Box
+                  id="test"
+                  pos={"absolute"}
+                  bottom={0}
+                  left={0}
+                  right={0}
+                  bg={"rgba(0, 0, 0, 0.8)"}
+                  overflow={"hidden"}
+                  w={"100%"}
+                  transition={"0.5s ease"}
+                  h={"0%"}
+                >
+                  <Flex
+                    justify={"center"}
+                    alignItems={"center"}
+                    p={"2"}
+                    h={"100%"}
+                    w={"100%"}
+                    color={"white"}
+                  >
+                    <Box>
+                      <Text
+                        fontWeight={"bold"}
+                        textAlign={"center"}
+                        fontSize={"2xl"}
+                      >
+                        {each?.name}
+                      </Text>
+                      <Text textAlign={"center"}>{each?.description}</Text>
+                    </Box>
+                  </Flex>
+                </Box>
               </Box>
-            </Box>
-
-            <Box
-              h={"80"}
-              w={["100%", "100%", "20%", "20%"]}
-              pos={"relative"}
-              _hover={{
-                "#test": { h: "100%" },
-              }}
-              paddingY={["2", "2", "0", "0"]}
-            >
-              <Image
-                // borderRadius={"xl"}
-                h={"100%"}
-                w={"100%"}
-                display={"block"}
-                src="https://cdn.tasteatlas.com/images/ingredients/26bf39e64a9441f4824c1a682171528b.jpg?w=600&h=450"
-              />
-              <Box
-                id="test"
-                pos={"absolute"}
-                bottom={0}
-                left={0}
-                right={0}
-                bg={"red"}
-                overflow={"hidden"}
-                w={"100%"}
-                transition={"0.5s ease"}
-                h={"0%"}
-              >
-                <Box color={"white"}>hello</Box>
-              </Box>
-            </Box>
-            <Box
-              // borderRadius={"xl"}
-              w={["100%", "100%", "20%", "20%"]}
-              pos={"relative"}
-              _hover={{
-                "#test": { h: "100%" },
-              }}
-              h={"80"}
-              paddingY={["2", "2", "0", "0"]}
-            >
-              <Image
-                // borderRadius={"xl"}
-                h={"100%"}
-                w={"100%"}
-                display={"block"}
-                src="https://cdn3.eyeem.com/thumb/e505daefe2cb18a0e9628c868babaef479c9b9c7-1525602258041/w/800"
-              />
-              <Box
-                id="test"
-                pos={"absolute"}
-                bottom={0}
-                left={0}
-                right={0}
-                bg={"red"}
-                overflow={"hidden"}
-                w={"100%"}
-                transition={"0.5s ease"}
-                h={"0%"}
-              >
-                <Box color={"white"}>hello</Box>
-              </Box>
-            </Box>
+            ))}
           </Flex>
         </Box>
 
