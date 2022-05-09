@@ -21,7 +21,7 @@ export default function Home() {
   const router = useRouter();
 
   const scale = useTransform(scrollYProgress, [1, 0], [0.5, 1]);
-  
+
   return (
     <motion.div ref={constraintsRef}>
       <Container
@@ -88,14 +88,111 @@ export default function Home() {
               Products
             </Text>
           </Center>
-          <HStack justify={"space-evenly"} h={"3xl"}>
-            <Box bg={"white"} borderRadius={"xl"} h={"70%"} w={"20%"}></Box>
-            <Box bg={"white"} borderRadius={"xl"} h={"70%"} w={"20%"}></Box>
-            <Box bg={"white"} borderRadius={"xl"} h={"70%"} w={"20%"}></Box>
-          </HStack>
+          <Flex
+            justify={"space-evenly"}
+            flexDir={["column", "column", "row", "row"]}
+          >
+            <Box
+              paddingY={["2", "2", "0", "0"]}
+              h={"90%"}
+              w={["100%", "100%", "20%", "20%"]}
+              pos={"relative"}
+              _hover={{
+                "#test": { h: "100%" },
+              }}
+              h={"80"}
+            >
+              <Image
+                // borderRadius={"xl"}
+                h={"100%"}
+                w={"100%"}
+                // display={"block"}
+                fit={"cover"}
+                src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGVhJTIwY3VwfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+              />
+              <Box
+                id="test"
+                pos={"absolute"}
+                bottom={0}
+                left={0}
+                right={0}
+                bg={"red"}
+                overflow={"hidden"}
+                w={"100%"}
+                transition={"0.5s ease"}
+                h={"0%"}
+              >
+                <Box color={"white"}>hello</Box>
+              </Box>
+            </Box>
+
+            <Box
+              h={"80"}
+              w={["100%", "100%", "20%", "20%"]}
+              pos={"relative"}
+              _hover={{
+                "#test": { h: "100%" },
+              }}
+              paddingY={["2", "2", "0", "0"]}
+            >
+              <Image
+                // borderRadius={"xl"}
+                h={"100%"}
+                w={"100%"}
+                display={"block"}
+                src="https://cdn.tasteatlas.com/images/ingredients/26bf39e64a9441f4824c1a682171528b.jpg?w=600&h=450"
+              />
+              <Box
+                id="test"
+                pos={"absolute"}
+                bottom={0}
+                left={0}
+                right={0}
+                bg={"red"}
+                overflow={"hidden"}
+                w={"100%"}
+                transition={"0.5s ease"}
+                h={"0%"}
+              >
+                <Box color={"white"}>hello</Box>
+              </Box>
+            </Box>
+            <Box
+              // borderRadius={"xl"}
+              w={["100%", "100%", "20%", "20%"]}
+              pos={"relative"}
+              _hover={{
+                "#test": { h: "100%" },
+              }}
+              h={"80"}
+              paddingY={["2", "2", "0", "0"]}
+            >
+              <Image
+                // borderRadius={"xl"}
+                h={"100%"}
+                w={"100%"}
+                display={"block"}
+                src="https://cdn3.eyeem.com/thumb/e505daefe2cb18a0e9628c868babaef479c9b9c7-1525602258041/w/800"
+              />
+              <Box
+                id="test"
+                pos={"absolute"}
+                bottom={0}
+                left={0}
+                right={0}
+                bg={"red"}
+                overflow={"hidden"}
+                w={"100%"}
+                transition={"0.5s ease"}
+                h={"0%"}
+              >
+                <Box color={"white"}>hello</Box>
+              </Box>
+            </Box>
+          </Flex>
         </Box>
 
-        <VStack>
+        <VStack minH={"96"}>
           <Flex
             flexDir={["column-reverse", "column-reverse", "row", "row"]}
             alignItems={"flex-start"}
@@ -131,7 +228,7 @@ export default function Home() {
             </Box>
           </Flex>
         </VStack>
-        <VStack>
+        <VStack minH={"96"}>
           <Flex
             flexDir={["column", "column", "row", "row"]}
             alignItems={"flex-start"}
@@ -169,7 +266,7 @@ export default function Home() {
           </Flex>
         </VStack>
 
-        <VStack>
+        <VStack minH={"96"}>
           <Flex
             flexDir={["column-reverse", "column-reverse", "row", "row"]}
             alignItems={"flex-start"}
