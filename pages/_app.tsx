@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
           />
 
           <NavBar />
-          <Box pt={["16", "16", "12", "12"]}>
+          <Box overflowY="auto" pt={["16", "16", "12", "12"]}>
             <Component {...pageProps} />
           </Box>
           <Footer />

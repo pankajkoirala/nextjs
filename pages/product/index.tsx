@@ -50,6 +50,16 @@ export default function Product() {
       about: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
       totalPrice: 1000,
     },
+    {
+      id: 4,
+      name: "AKABARA",
+      color: "pink",
+      quantity: 1,
+      i: "https://munaabazar.com/wp-content/uploads/2021/05/60.jpg",
+      pricePerUnit: 1000,
+      about: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
+      totalPrice: 1000,
+    },
   ]);
 
   return (

@@ -33,17 +33,25 @@ export default function Home() {
       name: "Churpi",
       description:
         "Churpi is typically made within the mountain region of Nepal. Yak milk is typically preferred to form Churpi.",
+
       image:
-        "https://cdn3.eyeem.com/thumb/e505daefe2cb18a0e9628c868babaef479c9b9c7-1525602258041/w/800",
+        "https://cdn.tasteatlas.com/images/ingredients/26bf39e64a9441f4824c1a682171528b.jpg?w=600&h=450",
     },
     {
       name: "Aalichi",
       description:
         " Cardamom is rich in essential oils and has strong antioxidant and diuretic properties. It has an antibacterial and anti-inflammatory effect.",
       image:
-        "https://cdn.tasteatlas.com/images/ingredients/26bf39e64a9441f4824c1a682171528b.jpg?w=600&h=450",
+        "https://cdn3.eyeem.com/thumb/e505daefe2cb18a0e9628c868babaef479c9b9c7-1525602258041/w/800",
+    },
+    {
+      name: "Akabara",
+      description:
+        "Dalle Khursani has a range of 1,00,000 to 3,50,000 SHU (Scoville Heat Units) and is considered one of the hottest chillies in the world.",
+      image: "https://munaabazar.com/wp-content/uploads/2021/05/60.jpg",
     },
   ];
+
   return (
     <motion.div ref={constraintsRef}>
       <Container
@@ -118,7 +126,7 @@ export default function Home() {
             {product?.map((each, i) => (
               <Box
                 key={i}
-                paddingY={["2", "2", "0", "0"]}
+                marginY={["2", "2", "0", "0"]}
                 w={["100%", "100%", "20%", "20%"]}
                 pos={"relative"}
                 _hover={{
@@ -149,7 +157,6 @@ export default function Home() {
                   <Flex
                     justify={"center"}
                     alignItems={"center"}
-                    p={"2"}
                     h={"100%"}
                     w={"100%"}
                     color={"white"}
@@ -159,10 +166,13 @@ export default function Home() {
                         fontWeight={"bold"}
                         textAlign={"center"}
                         fontSize={"2xl"}
+                        fontStyle={"oblique"}
                       >
                         {each?.name}
                       </Text>
-                      <Text textAlign={"center"}>{each?.description}</Text>
+                      <Text fontStyle={"oblique"} textAlign={"center"}>
+                        {each?.description}
+                      </Text>
                     </Box>
                   </Flex>
                 </Box>

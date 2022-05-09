@@ -26,13 +26,10 @@ export default function NavBar() {
       name: "Contact",
       href: "/contact",
     },
-    {
-      name: "Blog",
-      href: "/blog",
-    },
+
     {
       name: "Gallery",
-      href: "/blog",
+      href: "/gallery",
     },
   ];
   const { isOpen, onToggle } = useDisclosure();
