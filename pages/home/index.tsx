@@ -59,12 +59,13 @@ export default function Home() {
         p={0}
         m={0}
         maxW={"full"}
-        background={"green.100"}
+        background={"blackAlpha.900"}
+        overflow={"hidden"}
       >
         <Box
           w={"100%"}
           minH={"calc(100vh - 48px)"}
-          bgImage="/home.jpg"
+          bgImage="/home.webp"
           bgRepeat={"no-repeat"}
           bgPosition="center"
           bgSize={"cover"}
@@ -110,7 +111,7 @@ export default function Home() {
             <Text
               textShadow={"2px 2px 5px black"}
               textAlign={"center"}
-              color={"green.700"}
+              color={"white"}
               fontSize={"4xl"}
               fontStyle={"oblique"}
               fontWeight={"bold"}
@@ -121,7 +122,7 @@ export default function Home() {
           <Flex
             justify={"space-evenly"}
             flexDir={["column", "column", "row", "row"]}
-            paddingY={"4"}
+            paddingY={["0", "0", "4", "4"]}
           >
             {product?.map((each, i) => (
               <Box
@@ -180,153 +181,166 @@ export default function Home() {
             ))}
           </Flex>
         </Box>
-
-        <VStack minH={"96"}>
-          <Flex
-            flexDir={["column-reverse", "column-reverse", "row", "row"]}
-            alignItems={"flex-start"}
-            w={"100%"}
-          >
-            <VStack p={"4"} w={["100%", "100%", "50%", "50%"]}>
-              <Box>
-                <Text
-                  fontStyle={"oblique"}
-                  fontSize={"2xl"}
-                  fontWeight={"bold"}
-                  color={"green.700"}
-                  textAlign={"left"}
-                >
-                  Who We Are
-                </Text>
-              </Box>
-              <Box
-                fontStyle={"oblique"}
-                textAlign={"justify"}
-                fontSize={"large"}
-                lineHeight={"140%"}
-              >
-                Tea is an aromatic beverage prepared by pouring hot or boiling
-                water over cured or fresh leaves of Camellia sinensis, an
-                evergreen shrub native to China, India and other East Asian
-                countries. Tea is also rarely made from the leaves of Camellia
-                taliensis.
-              </Box>
-            </VStack>
-            <Box h={"100%"} w={["100%", "100%", "50%", "50%"]}>
-              <Image h={"100%"} w={"100%"} src="/teaStan.jpg" />
-            </Box>
-          </Flex>
-        </VStack>
-        <VStack minH={"96"}>
-          <Flex
-            flexDir={["column", "column", "row", "row"]}
-            alignItems={"flex-start"}
-            w={"100%"}
-          >
-            <Box h={"100%"} w={["100%", "100%", "50%", "50%"]}>
-              <Image h={"100%"} w={"100%"} src="/teaPlant.jpg" />
-            </Box>
-
-            <VStack p={"4"} w={["100%", "100%", "50%", "50%"]}>
-              <Box>
-                <Text
-                  fontStyle={"oblique"}
-                  fontSize={"2xl"}
-                  fontWeight={"bold"}
-                  color={"green.700"}
-                  textAlign={"left"}
-                >
-                  Who We Are
-                </Text>
-              </Box>
-              <Box
-                fontStyle={"oblique"}
-                textAlign={"justify"}
-                fontSize={"large"}
-                lineHeight={"140%"}
-              >
-                Tea is an aromatic beverage prepared by pouring hot or boiling
-                water over cured or fresh leaves of Camellia sinensis, an
-                evergreen shrub native to China, India and other East Asian
-                countries. Tea is also rarely made from the leaves of Camellia
-                taliensis.
-              </Box>
-            </VStack>
-          </Flex>
-        </VStack>
-
-        <VStack minH={"96"}>
-          <Flex
-            flexDir={["column-reverse", "column-reverse", "row", "row"]}
-            alignItems={"flex-start"}
-            w={"100%"}
-          >
-            <VStack p={"4"} w={["100%", "100%", "50%", "50%"]}>
-              <Box>
-                <Text
-                  fontStyle={"oblique"}
-                  fontSize={"2xl"}
-                  fontWeight={"bold"}
-                  color={"green.700"}
-                  textAlign={"left"}
-                >
-                  Who We Are
-                </Text>
-              </Box>
-              <Box
-                fontStyle={"oblique"}
-                textAlign={"justify"}
-                fontSize={"large"}
-                lineHeight={"140%"}
-              >
-                Tea is an aromatic beverage prepared by pouring hot or boiling
-                water over cured or fresh leaves of Camellia sinensis, an
-                evergreen shrub native to China, India and other East Asian
-                countries. Tea is also rarely made from the leaves of Camellia
-                taliensis.
-              </Box>
-            </VStack>
-            <Box h={"100%"} w={["100%", "100%", "50%", "50%"]}>
-              <Image h={"100%"} w={"100%"} src="/hotTea.jpg" />
-            </Box>
-          </Flex>
-        </VStack>
-
-        <VStack bg={"white"} w={"100%"} paddingY={"4"}>
-          <Text
-            textShadow={"2px 2px 5px black"}
-            textAlign={"center"}
-            color={"green.700"}
-            fontSize={"4xl"}
-            fontStyle={"oblique"}
-            fontWeight={"bold"}
-          >
-            Payment Methods
-          </Text>
-          <HStack w={"100%"} pt={"8"} mb={"4"} justify={"space-around"}>
-            <motion.div
-              animate={{ x: 100 }}
-              initial={{ x: -100 }}
-              transition={{ duration: 1 }}
+        <Box paddingBottom={"8"}>
+          <VStack minH={"md"}>
+            <Flex
+              flexDir={["column-reverse", "column-reverse", "row", "row"]}
+              alignItems={"flex-start"}
+              w={"100%"}
             >
-              <Box>{getIcon("cashPayment")}</Box>
-            </motion.div>
-            <motion.div
-              animate={{ y: 0 }}
-              initial={{ y: -100 }}
-              transition={{ duration: 1 }}
+              <VStack
+                h={["auto", "auto", "md", "md"]}
+                p={"4"}
+                w={["100%", "100%", "50%", "50%"]}
+              >
+                <Flex
+                  w={["100%", "100%", "80%", "80%"]}
+                  h={"100%"}
+                  justify={"center"}
+                  alignItems={"center"}
+                  flexDir={"column"}
+                >
+                  <Box>
+                    <Text
+                      fontStyle={"oblique"}
+                      fontSize={"5xl"}
+                      fontWeight={"medium"}
+                      color={"white"}
+                      textAlign={"left"}
+                    >
+                      Who We Are
+                    </Text>
+                  </Box>
+                  <Box
+                    fontStyle={"oblique"}
+                    textAlign={"justify"}
+                    fontSize={"large"}
+                    lineHeight={"140%"}
+                    color={"white"}
+                  >
+                    Tea is an aromatic beverage prepared by pouring hot or
+                    boiling water over cured or fresh leaves of Camellia
+                    sinensis, an evergreen shrub native to China, India and
+                    other East Asian countries. Tea is also rarely made from the
+                    leaves of Camellia taliensis.
+                  </Box>
+                </Flex>
+              </VStack>
+              <Box
+                h={["auto", "auto", "md", "md"]}
+                w={["100%", "100%", "50%", "50%"]}
+              >
+                <Image height={"100%"} w={"100%"} src="/teaStan.jpg" />
+              </Box>
+            </Flex>
+          </VStack>
+          <VStack minH={"md"}>
+            <Flex
+              flexDir={["column", "column", "row", "row"]}
+              alignItems={"flex-start"}
+              w={"100%"}
             >
-              <Box>{getIcon("phonePay")}</Box>
-            </motion.div>
-            <motion.div
-              animate={{ x: 0 }}
-              initial={{ x: 200 }}
-              transition={{ duration: 1 }}
+              <Box
+                h={["auto", "auto", "md", "md"]}
+                w={["100%", "100%", "50%", "50%"]}
+              >
+                <Image h={"100%"} w={"100%"} src="/teaPlant.jpg" />
+              </Box>
+
+              <VStack
+                h={["auto", "auto", "md", "md"]}
+                p={"4"}
+                w={["100%", "100%", "50%", "50%"]}
+              >
+                <Flex
+                  w={["100%", "100%", "80%", "80%"]}
+                  h={"100%"}
+                  justify={"center"}
+                  alignItems={"center"}
+                  flexDir={"column"}
+                >
+                  <Box>
+                    <Text
+                      fontStyle={"oblique"}
+                      fontSize={"5xl"}
+                      fontWeight={"medium"}
+                      color={"white"}
+                      textAlign={"left"}
+                    >
+                      Who We Are
+                    </Text>
+                  </Box>
+                  <Box
+                    fontStyle={"oblique"}
+                    textAlign={"justify"}
+                    fontSize={"large"}
+                    lineHeight={"140%"}
+                    color={"white"}
+                  >
+                    Tea is an aromatic beverage prepared by pouring hot or
+                    boiling water over cured or fresh leaves of Camellia
+                    sinensis, an evergreen shrub native to China, India and
+                    other East Asian countries. Tea is also rarely made from the
+                    leaves of Camellia taliensis.
+                  </Box>
+                </Flex>
+              </VStack>
+            </Flex>
+          </VStack>
+
+          <VStack minH={"md"}>
+            <Flex
+              flexDir={["column-reverse", "column-reverse", "row", "row"]}
+              alignItems={"flex-start"}
+              w={"100%"}
             >
-              <Box>{getIcon("cash")}</Box>
-            </motion.div>
-          </HStack>
-        </VStack>
+              <VStack
+                h={["auto", "auto", "md", "md"]}
+                p={"4"}
+                w={["100%", "100%", "50%", "50%"]}
+              >
+                <Flex
+                  w={["100%", "100%", "80%", "80%"]}
+                  h={"100%"}
+                  justify={"center"}
+                  alignItems={"center"}
+                  flexDir={"column"}
+                >
+                  <Box>
+                    <Text
+                      fontStyle={"oblique"}
+                      fontSize={"5xl"}
+                      fontWeight={"medium"}
+                      color={"white"}
+                      textAlign={"left"}
+                    >
+                      Who We Are
+                    </Text>
+                  </Box>
+                  <Box
+                    fontStyle={"oblique"}
+                    textAlign={"justify"}
+                    fontSize={"large"}
+                    lineHeight={"140%"}
+                    color={"white"}
+                  >
+                    Tea is an aromatic beverage prepared by pouring hot or
+                    boiling water over cured or fresh leaves of Camellia
+                    sinensis, an evergreen shrub native to China, India and
+                    other East Asian countries. Tea is also rarely made from the
+                    leaves of Camellia taliensis.
+                  </Box>
+                </Flex>
+              </VStack>
+              <Box
+                h={["auto", "auto", "md", "md"]}
+                w={["100%", "100%", "50%", "50%"]}
+              >
+                <Image h={"100%"} w={"100%"} src="/hotTea.jpg" />
+              </Box>
+            </Flex>
+          </VStack>
+        </Box>
       </Container>
       {/* asfasgsagsagasgags */}
     </motion.div>

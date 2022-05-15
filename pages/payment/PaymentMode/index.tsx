@@ -42,6 +42,7 @@ export default function Esewa() {
     document.body.appendChild(form);
     form.submit();
   }
+  
   //----------------------------------------khalti---------------------------------------
 
   let config = {

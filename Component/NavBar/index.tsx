@@ -38,11 +38,16 @@ export default function NavBar() {
     <Container
       pos={"fixed"}
       zIndex={999}
-      bg={"green.700"}
+      bg={"rgba(0, 0, 0, 0.5)"}
       h={["auto", "auto", "12", "12"]}
       paddingX={["3", "3", "5", "5"]}
       paddingY={["3", "3", "0", "0"]}
       maxW={"100vw"}
+      css={{
+        "&::-webkit-box-shadow": {
+          boxShadow: "0 10px 5px #888888;",
+        },
+      }}
     >
       <Flex
         display={["none", "none", "flex", "flex"]}

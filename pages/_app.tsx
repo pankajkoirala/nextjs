@@ -48,12 +48,13 @@ function MyApp({ Component, pageProps }) {
             draggable
             pauseOnHover
           />
-
-          <NavBar />
-          <Box overflowY="auto" pt={["16", "16", "12", "12"]}>
-            <Component {...pageProps} />
+          <Box bg={"#000000"}>
+            <NavBar />
+            <Box overflowY="auto" pt={["16", "16", "12", "12"]}>
+              <Component {...pageProps} />
+            </Box>
+            <Footer />
           </Box>
-          <Footer />
         </ChakraProvider>
       </Provider>
     </QueryClientProvider>
